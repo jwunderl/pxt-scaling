@@ -57,10 +57,13 @@ namespace images {
         const midY = output.height >> 1;
 
         for (let x = 0; x < output.width; ++x) {
+            const xDiff = (x - midX) | 0;
             for (let y = 0; y < output.height; ++y) {
-                const angleForPixel = Math.atan2(y - midY, x - midX) - angleAsRadian;
+                const yDiff = (y - midY) | 0;
+    
+                const angleForPixel = Math.atan2(yDiff, xDiff) - angleAsRadian;
                 const m = Math.sqrt(
-                    Math.pow(x - midX, 2) + Math.pow(y - midY, 2)
+                    xDiff * xDiff + yDiff * yDiff
                 );
 
                 output.setPixel(
