@@ -1,17 +1,20 @@
 // tests go here; this will not be compiled when this package is used as an extension.
-let mySprite = sprites.create(img`1`, SpriteKind.Player)
+let mySprite = sprites.create(img`1`, SpriteKind.Player);
 
 mySprite.top = 20;
 mySprite.left = 20;
 
-const scale2xSprite = sprites.create(img`1`)
+const scale2xSprite = sprites.create(img`1`);
 scale2xSprite.top = 10;
 scale2xSprite.left = 80;
 
-const scale3xSprite = sprites.create(img`1`)
+const scale3xSprite = sprites.create(img`1`);
 scale3xSprite.top = screen.height >> 1;
-scale3xSprite.left = 40;
+scale3xSprite.left = 5;
 
+const scale4xSprite = sprites.create(img`1`);
+scale4xSprite.top = (screen.height >> 1) - 15;
+scale4xSprite.left = screen.width >> 1;
 
 const imgs = [
     img`
@@ -231,22 +234,22 @@ const imgs = [
         . . f f c c c c c c c c . . . .
     `,
     img`
-        . . . . . . . . . . . f f f f f f f . . . c c f f f . . . . . . . . . .
-        . . . . . . . . . . f b b b b b b b f f c b b b b f . . . . . . . . . .
-        . . . . . . . . . . f b b 1 1 1 b b b b b f f b f . . . . . . . . . . .
-        . . . . . . . . . . f b 1 1 1 1 1 f f b b b b f f . . . . . . . . . . .
-        . . . . . . . . . . f 1 c c c c 1 f f b b b b b c f f . . . . . . . . .
-        . . . . . . . . . . f f c 1 c 1 c 1 b b c b c b c c c f . . . . . . . .
-        . . . . . . . . . . . f c c 3 3 3 1 b b b c b c b c c c f . . c c c c c
-        . . . . . . . . . . . . c 3 3 3 c 1 b b b c b c b c c c c f c d d b b c
-        . . . . . . . . . . . . c 3 3 3 c 1 b b b b b b b c c c c c d d b c c .
-        . . . . . . . . . . . . c 3 3 3 c 1 1 b b b b b c c c c c c b b c c . .
-        . . . . . . . . . . . c c 3 3 1 c 1 1 b b b b c c c c c c f b c c f . .
-        . . . . . . . . . . . c c 1 3 c 1 1 c b b b c c c c c b b c f c c f . .
-        . . . . . . . . . . . c 1 1 1 1 1 1 c b b b f d d d d d c . f b b c f .
-        . . . . . . . . . . . . c c 1 1 1 1 f b d b b f d d d c . . . f b b f .
-        . . . . . . . . . . . . . . c c c f f f b d b b f c c . . . . . f b b f
-        . . . . . . . . . . . . . . . . . . . . f f f f f . . . . . . . . f f f
+        . f f f f f f f . . . c c f f f . . . . . . . . . .
+        f b b b b b b b f f c b b b b f . . . . . . . . . .
+        f b b 1 1 1 b b b b b f f b f . . . . . . . . . . .
+        f b 1 1 1 1 1 f f b b b b f f . . . . . . . . . . .
+        f 1 c c c c 1 f f b b b b b c f f . . . . . . . . .
+        f f c 1 c 1 c 1 b b c b c b c c c f . . . . . . . .
+        . f c c 3 3 3 1 b b b c b c b c c c f . . c c c c c
+        . . c 3 3 3 c 1 b b b c b c b c c c c f c d d b b c
+        . . c 3 3 3 c 1 b b b b b b b c c c c c d d b c c .
+        . . c 3 3 3 c 1 1 b b b b b c c c c c c b b c c . .
+        . c c 3 3 1 c 1 1 b b b b c c c c c c f b c c f . .
+        . c c 1 3 c 1 1 c b b b c c c c c b b c f c c f . .
+        . c 1 1 1 1 1 1 c b b b f d d d d d c . f b b c f .
+        . . c c 1 1 1 1 f b d b b f d d d c . . . f b b f .
+        . . . . c c c f f f b d b b f c c . . . . . f b b f
+        . . . . . . . . . . f f f f f . . . . . . . . f f f
     `,
     img`
         . . 6 7 7 8 . .
@@ -293,6 +296,7 @@ forever(() => {
         mySprite.setImage(im);
         scale2xSprite.setImage(images.scale2x(im));
         scale3xSprite.setImage(images.scale3x(im));
+        scale4xSprite.setImage(images.scale4x(im));
 
         pause(500);
     }
