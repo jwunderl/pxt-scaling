@@ -1,6 +1,22 @@
 namespace images {
     // using https://www.scale2x.it/algorithm
 
+    /**
+     * given:
+     * 
+     * [a][b][c]
+     * [d][e][f]
+     * [g][h][i]
+     * 
+     * scale pixel e to
+     * 
+     * [e0][e1]
+     * [e2][e3]
+     * 
+     * any pixels that would be off the border get replaced w/
+     * closed pixel inside
+     */
+
     export function scale2x(im: Image) {
         const w = im.width;
         const h = im.height;
@@ -10,11 +26,11 @@ namespace images {
         );
 
         for (let x = 0; x < im.width; x++) {
-            const lb = x === 0;
-            const rb = x === im.width - 1;
+            const lb = x === 0; // left pixel oob
+            const rb = x === im.width - 1; // right pixel oob
             for (let y = 0; y < im.height; y++) {
-                const tb = y === 0;
-                const bb = y === im.height - 1;
+                const tb = y === 0; // top oob
+                const bb = y === im.height - 1; // bottom oob
 
                 const e = im.getPixel(x, y);
 
@@ -42,6 +58,22 @@ namespace images {
         return output;
     }
 
+    /**
+     * given:
+     * 
+     * [a][b][c]
+     * [d][e][f]
+     * [g][h][i]
+     * 
+     * scale pixel e to
+     * 
+     * [e0][e1][e2]
+     * [e3][e4][e5]
+     * [e6][e7][e8]
+     * 
+     * any pixels that would be off the border get replaced w/
+     * closed pixel inside
+     */
     export function scale3x(im: Image) {
         const w = im.width;
         const h = im.height;
