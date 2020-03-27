@@ -7,8 +7,9 @@ const prepTest = () => {
 
 control.runInParallel(function () {
     while (true) {
-        testArbitraryRot();
         testRotSquareAndScale();
+        testScalingSpeed();
+        testArbitraryRot();
         testTrim();
         smolStrawberry();
     };
@@ -46,6 +47,41 @@ function testArbitraryRot() {
         pause(30)
         rotSprite.setImage(images.rot(mySprite.image, i));
         rotSpriteWithPadding.setImage(images.rot(mySprite.image, i, 1));
+    }
+}
+
+function testScalingSpeed() {
+    prepTest();
+    const mySprite = sprites.create(img`
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . b 5 5 b . . .
+        . . . . . . b b b b b b . . . .
+        . . . . . b b 5 5 5 5 5 b . . .
+        . b b b b b 5 5 5 5 5 5 5 b . .
+        . b d 5 b 5 5 5 5 5 5 5 5 b . .
+        . . b 5 5 b 5 d 1 f 5 d 4 f . .
+        . . b d 5 5 b 1 f f 5 4 4 c . .
+        b b d b 5 5 5 d f b 4 4 4 4 b .
+        b d d c d 5 5 b 5 4 4 4 4 4 4 b
+        c d d d c c b 5 5 5 5 5 5 5 b .
+        c b d d d d d 5 5 5 5 5 5 5 b .
+        . c d d d d d d 5 5 5 5 5 d b .
+        . . c b d d d d d 5 5 5 b b . .
+        . . . c c c c c c c c b b . . .
+    `);
+    
+    mySprite.x -= 30;
+    const scaleSprite = sprites.create(images.scale3x(mySprite.image));
+    scaleSprite.x += 20;
+    for (let i = 0; i <= 500; ++i) {
+        pause(10);
+        mySprite.image.setPixel(
+            Math.randomRange(0, 15),
+            Math.randomRange(0, 15),
+            Math.randomRange(10, 0xf)
+        );
+        scaleSprite.setImage(images.scale3x(mySprite.image))
     }
 }
 
