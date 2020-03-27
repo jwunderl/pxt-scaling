@@ -7,11 +7,11 @@ const prepTest = () => {
 
 control.runInParallel(function () {
     while (true) {
-        testScalingSpeed();
         testArbitraryRot();
         testRotSquareAndScale();
         testTrim();
         smolStrawberry();
+        testScalingSpeed();
     };
 })
 
@@ -43,8 +43,8 @@ function testArbitraryRot() {
     rotSpriteWithPadding.x += 30;
     rotSpriteWithPadding.y += 15;
 
-    for (let i = 10; i <= 1080; i += 10) {
-        pause(30)
+    for (let i = 10; i <= 720; i += 5) {
+        pause(20)
         rotSprite.setImage(images.rot(mySprite.image, i));
         rotSpriteWithPadding.setImage(images.rot(mySprite.image, i, 1));
     }
