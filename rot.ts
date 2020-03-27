@@ -13,26 +13,35 @@ namespace images {
             return im.clone();
         } else {
             // todo rotsprite for non square rots
-            return im
+            return rotSprite(im, deg)
         }
+    }
 
-        function rot90(im: Image) {
-            const w = im.width;
-            const h = im.height;
-            const output = image.create(h, w);
+    function rot90(im: Image) {
+        const w = im.width;
+        const h = im.height;
+        const output = image.create(h, w);
 
-            for (let x = 0; x < w; x++) {
-                for (let y = 0; y < h; y++) {
-                    const c = im.getPixel(x, h - y - 1);
-                    output.setPixel(
-                        y,
-                        x,
-                        c
-                    );
-                }
+        for (let x = 0; x < w; x++) {
+            for (let y = 0; y < h; y++) {
+                const c = im.getPixel(x, h - y - 1);
+                output.setPixel(
+                    y,
+                    x,
+                    c
+                );
             }
-
-            return output;
         }
+
+        return output;
+    }
+
+    function rotSprite(im: Image, deg: number) {
+        const scaled = images.scale3x(im);
+        const output = image.create(scaled.width, scaled.height);
+
+
+
+        return images.scaleDown(output, 3);
     }
 }
