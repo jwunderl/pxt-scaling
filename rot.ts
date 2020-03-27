@@ -36,6 +36,10 @@ namespace images {
         return output;
     }
 
+    /**
+     * roughly based on https://en.m.wikipedia.org/wiki/Pixel-art_scaling_algorithms#RotSprite,
+     * need to follow it a bit more closely
+     */
     function rotSprite(im: Image, deg: number) {
         const scaled = images.scale3x(im);
         const output = image.create(scaled.width, scaled.height);
