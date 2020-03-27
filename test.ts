@@ -1,8 +1,7 @@
 // tests go here; this will not be compiled when this package is used as an extension.
 let mySprite = sprites.create(img`1`, SpriteKind.Player);
-
-mySprite.top = 20;
-mySprite.left = 20;
+mySprite.top = 5;
+mySprite.left = 5;
 
 const scale2xSprite = sprites.create(img`1`);
 scale2xSprite.top = 10;
@@ -15,6 +14,18 @@ scale3xSprite.left = 5;
 const scale4xSprite = sprites.create(img`1`);
 scale4xSprite.top = (screen.height >> 1) - 15;
 scale4xSprite.left = screen.width >> 1;
+
+const rot90Sprite = sprites.create(img`1`);
+rot90Sprite.top = 5;
+rot90Sprite.left = 40;
+
+const rot180Sprite = sprites.create(img`1`);
+rot180Sprite.top = 35;
+rot180Sprite.left = 5;
+
+const rot270Sprite = sprites.create(img`1`);
+rot270Sprite.top = 35;
+rot270Sprite.left = 40;
 
 const imgs = [
     img`
@@ -297,7 +308,10 @@ forever(() => {
         scale2xSprite.setImage(images.scale2x(im));
         scale3xSprite.setImage(images.scale3x(im));
         scale4xSprite.setImage(images.scale4x(im));
+        rot90Sprite.setImage(images.rot(im, 90));
+        rot180Sprite.setImage(images.rot(im, 180));
+        rot270Sprite.setImage(images.rot(im, 270));
 
-        pause(500);
+        pause(600);
     }
 });

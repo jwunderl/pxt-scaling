@@ -96,21 +96,21 @@ namespace images {
                         e : bb ?
                             f : rb ? h : im.getPixel(x + 1, y + 1);
 
-                    output.setPixel(outX, outY, d == b ? d : e || e); // E0
+                    output.setPixel(outX, outY, d == b ? d : e); // E0
                     output.setPixel(outX + 1, outY,
-                        ((d == b && e != c) || (b == f && e != a)) ? b : e || e); // E1
-                    output.setPixel(outX + 2, outY, b == f ? f : e || e); // E2
+                        ((d == b && e != c) || (b == f && e != a)) ? b : e); // E1
+                    output.setPixel(outX + 2, outY, b == f ? f : e); // E2
 
                     output.setPixel(outX, outY + 1,
-                        ((d == b && e != g) || (d == h && e != a)) ? d : e || e); // E3
+                        ((d == b && e != g) || (d == h && e != a)) ? d : e); // E3
                     output.setPixel(outX + 1, outY + 1, e); // E4
                     output.setPixel(outX + 2, outY + 1,
-                        ((b == f && e != i) || (h == f && e != c)) ? f : e || e); // E5
+                        ((b == f && e != i) || (h == f && e != c)) ? f : e); // E5
 
-                    output.setPixel(outX, outY + 2, d == h ? d : e || e); // E6
+                    output.setPixel(outX, outY + 2, d == h ? d : e); // E6
                     output.setPixel(outX + 1, outY + 2,
-                        ((d == h && e != i) || (h == f && e != g)) ? h : e || e); // E7
-                    output.setPixel(outX + 2, outY + 2, h == f ? f : e || e); // E8
+                        ((d == h && e != i) || (h == f && e != g)) ? h : e); // E7
+                    output.setPixel(outX + 2, outY + 2, h == f ? f : e); // E8
                 } else {
                     output.fillRect(outX, outY, 3, 3, e);
                 }
