@@ -7,15 +7,46 @@ const prepTest = () => {
 
 control.runInParallel(function () {
     while (true) {
+        testArbitraryRot();
         testRotSquareAndScale();
         testTrim();
+        smolStrawberry();
     };
 })
 
+function testArbitraryRot() {
+    prepTest();
+    const mySprite = sprites.create(img`
+        . . . . . . . . . . b 5 b . . .
+        . . . . . . . . . b 5 b . . . .
+        . . . . . . b b b b b b . . . .
+        . . . . . b b 5 5 5 5 5 b . . .
+        . . . . b b 5 d 1 f 5 d 4 c . .
+        . . . . b 5 5 1 f f d d 4 4 4 b
+        . . . . b 5 5 d f b 4 4 4 4 b .
+        . . . b d 5 5 5 5 4 4 4 4 b . .
+        . . b d d 5 5 5 5 5 5 5 5 b . .
+        . b d d d d 5 5 5 5 5 5 5 5 b .
+        b d d d b b b 5 5 5 5 5 5 5 b .
+        c d d b 5 5 d c 5 5 5 5 5 5 b .
+        c b b d 5 d c d 5 5 5 5 5 5 b .
+        . b 5 5 b c d d 5 5 5 5 5 d b .
+        b b c c c d d d d 5 5 5 b b . .
+        . . . c c c c c c c c b b . . .
+    `)
+    mySprite.x -= 30;
+    const rotSprite = sprites.create(mySprite.image.clone());
+    rotSprite.x += 30;
+
+    for (let i = 10; i <= 1080; i += 10) {
+        pause(30)
+        rotSprite.setImage(images.rot(mySprite.image, i));
+    }
+}
 
 function testRotSquareAndScale() {
     prepTest();
-    let mySprite = sprites.create(img`1`, SpriteKind.Player);
+    const mySprite = sprites.create(img`1`);
     mySprite.top = 5;
     mySprite.left = 5;
 
@@ -382,4 +413,28 @@ function testTrim() {
     t.image.replace(0, 5)
     pause(600)
     game.popScene()
+}
+
+function smolStrawberry() {
+    const mySprite = sprites.create(img`
+        . . . . . . . 6 . . . . . . . .
+        . . . . . . 8 6 6 . . . 6 8 . .
+        . . . e e e 8 8 6 6 . 6 7 8 . .
+        . . e 2 2 2 2 e 8 6 6 7 6 . . .
+        . e 2 2 4 4 2 7 7 7 7 7 8 6 . .
+        . e 2 4 4 2 6 7 7 7 6 7 6 8 8 .
+        e 2 4 5 2 2 6 7 7 6 2 7 7 6 . .
+        e 2 4 4 2 2 6 7 6 2 2 6 7 7 6 .
+        e 2 4 2 2 2 6 6 2 2 2 e 7 7 6 .
+        e 2 4 2 2 4 2 2 2 4 2 2 e 7 6 .
+        e 2 4 2 2 2 2 2 2 2 2 2 e c 6 .
+        e 2 2 2 2 2 2 2 4 e 2 e e c . .
+        e e 2 e 2 2 4 2 2 e e e c . . .
+        e e e e 2 e 2 2 e e e c . . . .
+        e e e 2 e e c e c c c . . . . .
+        . c c c c c c c . . . . . . . .
+    `)
+
+    mySprite.setImage(images.scaleDown(mySprite.image, 2));
+    pause(1000)
 }

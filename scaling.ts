@@ -163,33 +163,43 @@ namespace images {
 
         for (let x = 0; x < w; ++x) {
             for (let y = 0; y < h; ++y) {
-                im.setPixel(
+                output.setPixel(
                     x,
                     y,
-                    mostCommonColor(im, square, x, y)
+                    mostCommonColor(
+                        im,
+                        square,
+                        x * square,
+                        y * square
+                    )
                 );
             }
         }
         return output;
+    }
 
-        function mostCommonColor(im: Image, square: number, x: number, y: number) {
-            const colors: number[] = [];
-            
-            for (let x = 0; x < square; ++x) {
-                for (let y = 0; y < square; ++y) {
-                    const c = im.getPixel(x, y);
-                    colors[c] = (colors[c] || 0) + 1 
-                }
+    function mostCommonColor(im: Image, square: number, x0: number, y0: number) {
+        const colors: number[] = [];
+        for (let i = 0; i <= 0xF; ++i)
+            colors[i] = 0;
+        
+        for (let x = 0; x < square; ++x) {
+            for (let y = 0; y < square; ++y) {
+                colors[im.getPixel(x0 + x, y0 + y)] += 1 
             }
-
-            let max = 0;
-            for (let i = 1; i <= 0xF; ++i) {
-                if (colors[i] > colors[max]) {
-                    max = i;
-                }
-            }
-
-            return max;
         }
+
+        let max = 1;
+        for (let i = 1; i <= 0xF; ++i) {
+            if (colors[i] >= colors[max]) {
+                max = i;
+            }
+        }
+
+        if (colors[max] == 0) {
+            return 0;
+        }
+
+        return max;
     }
 }

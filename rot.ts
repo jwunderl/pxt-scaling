@@ -39,8 +39,28 @@ namespace images {
     function rotSprite(im: Image, deg: number) {
         const scaled = images.scale3x(im);
         const output = image.create(scaled.width, scaled.height);
+        const angleAsRadian = (deg / 180) * Math.PI;
 
+        const midX = output.width >> 1;
+        const midY = output.height >> 1;
 
+        for (let x = 0; x < output.width; ++x) {
+            for (let y = 0; y < output.height; ++y) {
+                const angleForPixel = Math.atan2(y - midY, x - midX) - angleAsRadian;
+                const m = Math.sqrt(
+                    Math.pow(x - midX, 2) + Math.pow(y - midY, 2)
+                );
+
+                output.setPixel(
+                    x,
+                    y,
+                    scaled.getPixel(
+                        midX + m * Math.cos(angleForPixel),
+                        midY + m * Math.sin(angleForPixel)
+                    )
+                );
+            }
+        }
 
         return images.scaleDown(output, 3);
     }
