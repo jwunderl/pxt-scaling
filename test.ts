@@ -7,9 +7,9 @@ const prepTest = () => {
 
 control.runInParallel(function () {
     while (true) {
-        testRotSquareAndScale();
         testScalingSpeed();
         testArbitraryRot();
+        testRotSquareAndScale();
         testTrim();
         smolStrawberry();
     };
