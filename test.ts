@@ -37,10 +37,15 @@ function testArbitraryRot() {
     mySprite.x -= 30;
     const rotSprite = sprites.create(mySprite.image.clone());
     rotSprite.x += 30;
+    rotSprite.y -= 15;
+    const rotSpriteWithPadding = sprites.create(mySprite.image.clone());
+    rotSpriteWithPadding.x += 30;
+    rotSpriteWithPadding.y += 15;
 
     for (let i = 10; i <= 1080; i += 10) {
         pause(30)
         rotSprite.setImage(images.rot(mySprite.image, i));
+        rotSpriteWithPadding.setImage(images.rot(mySprite.image, i, 1));
     }
 }
 

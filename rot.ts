@@ -1,6 +1,6 @@
 
 namespace images {
-    export function rot(im: Image, deg: number) {
+    export function rot(im: Image, deg: number, padding?: number) {
         const rangeForExact = 3;
         deg = deg < 0 ? 360 - Math.abs(deg % 360) : Math.abs(deg % 360);
         if (Math.abs(deg - 90) < rangeForExact) {
@@ -13,7 +13,7 @@ namespace images {
             return im.clone();
         } else {
             // todo rotsprite for non square rots
-            return rotSprite(im, deg)
+            return rotSprite(im, deg, padding)
         }
     }
 
@@ -40,8 +40,16 @@ namespace images {
      * roughly based on https://en.m.wikipedia.org/wiki/Pixel-art_scaling_algorithms#RotSprite,
      * need to follow it a bit more closely
      */
-    function rotSprite(im: Image, deg: number) {
-        const scaled = images.scale3x(im);
+    function rotSprite(im: Image, deg: number, padding?: number) {
+        let base = im;
+        if (padding > 0) {
+            base = image.create(
+                im.width + (padding << 1),
+                im.height + (padding << 1)
+            );
+            base.drawImage(im, padding, padding);
+        }
+        const scaled = images.scale3x(base);
         const output = image.create(scaled.width, scaled.height);
         const angleAsRadian = (deg / 180) * Math.PI;
 
