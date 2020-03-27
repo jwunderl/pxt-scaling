@@ -9,7 +9,8 @@
         "README.md",
         "main.ts",
         "scaling.ts",
-        "rot.ts"
+        "rot.ts",
+        "util.ts"
     ],
     "testFiles": [
         "test.ts"
