@@ -248,6 +248,42 @@ const imgs = [
         . . . . . . . . . . . . . . c c c f f f b d b b f c c . . . . . f b b f
         . . . . . . . . . . . . . . . . . . . . f f f f f . . . . . . . . f f f
     `,
+    img`
+        . . 6 7 7 8 . .
+        . 6 7 7 8 . . .
+        . 8 7 8 . . 6 8
+        . 8 7 8 . 6 6 8
+        . . 8 6 8 8 8 .
+        . . . 8 6 8 . .
+        6 6 . . 8 7 8 .
+        8 6 6 8 7 7 8 .
+        . 8 8 7 7 8 . .
+        . 8 7 7 8 . . .
+        . 8 7 8 . 8 6 .
+        . 8 7 8 . 8 6 6
+        . . 8 6 8 . 8 8
+        . . . 8 6 8 . .
+        . . . . 8 7 8 .
+        . . . 6 7 7 8 .
+    `,
+    img`
+        . . . b b b b b b b b b . . . .
+        . . b 1 d d d d d d d 1 b . . .
+        . b 1 1 1 1 1 1 1 1 1 1 1 b . .
+        . b d b c c c c c c c b d b . .
+        . b d c 6 6 6 6 6 6 6 c d b . .
+        . b d c 6 d 6 6 6 6 6 c d b . .
+        . b d c 6 6 6 6 6 6 6 c d b . .
+        . b d c 6 6 6 6 6 6 6 c d b . .
+        . b d c 6 6 6 6 6 6 6 c d b . .
+        . b d c c c c c c c c c d b . .
+        . c b b b b b b b b b b b c . .
+        c b c c c c c c c c c c c b c .
+        c 1 d d d d d d d d d d d 1 c .
+        c 1 d 1 1 d 1 1 d 1 1 d 1 1 c .
+        c b b b b b b b b b b b b b c .
+        c c c c c c c c c c c c c c c .
+    `,
 ];
 
 scene.setBackgroundColor(0xD)
