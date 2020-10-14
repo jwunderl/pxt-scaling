@@ -17,7 +17,10 @@ namespace images {
      * closed pixel inside
      */
 
-    export function scale2x(im: Image) {
+    //% blockId=scalingextscale2 block="scale $im by 2x"
+    //% im.shadow=variables_get
+    //% group="Scaling" weight=65
+    export function scale2x(im: Image): Image {
         const w = im.width;
         const h = im.height;
         const output = image.create(
@@ -74,7 +77,11 @@ namespace images {
      * any pixels that would be off the border get replaced w/
      * closed pixel inside
      */
-    export function scale3x(im: Image) {
+
+    //% blockId=scalingextscale3 block="scale $im by 3x"
+    //% im.shadow=variables_get
+    //% group="Scaling" weight=60
+    export function scale3x(im: Image): Image {
         const w = im.width;
         const h = im.height;
         const output = image.create(
@@ -152,10 +159,13 @@ namespace images {
         return output;
     }
 
-    export function scale4x(im: Image) {
+    export function scale4x(im: Image): Image {
         return scale2x(scale2x(im));
     }
 
+    //% blockId=scalingextscalehalf block="scale $im by .5x"
+    //% im.shadow=variables_get
+    //% group="Scaling" weight=40
     export function scaleDown(im: Image, square: number) {
         const w = im.width / square;
         const h = im.height / square;
