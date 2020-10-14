@@ -6,6 +6,7 @@ namespace images {
     //% im.shadow=variables_get
     //% deg.defl=90
     //% group="Scaling" weight=70
+    //% blockNamespace=scaling
     export function rot(im: Image, deg: number, padding?: number) {
         const rangeForExact = 3;
         deg = deg < 0 ? 360 - Math.abs(deg % 360) : Math.abs(deg % 360);

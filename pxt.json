@@ -10,7 +10,8 @@
         "main.ts",
         "scaling.ts",
         "rot.ts",
-        "util.ts"
+        "util.ts",
+        "ns.ts"
     ],
     "testFiles": [
         "test.ts"
