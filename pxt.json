@@ -10,15 +10,14 @@
         "main.ts",
         "scaling.ts",
         "rot.ts",
-        "util.ts",
-        "ns.ts"
+        "util.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
     "public": true,
     "targetVersions": {
-        "target": "1.2.6",
+        "target": "1.2.9",
         "targetId": "arcade"
     },
     "supportedTargets": [

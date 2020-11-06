@@ -1,4 +1,5 @@
-namespace images {
+//% color=#164E75 icon="\uf24e"
+namespace scaling {
     // using https://www.scale2x.it/algorithm
 
     /**

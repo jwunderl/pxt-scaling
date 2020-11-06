@@ -56,7 +56,7 @@ namespace images {
             );
             base.drawImage(im, padding, padding);
         }
-        const scaled = images.scale3x(base);
+        const scaled = scaling.scale3x(base);
         const output = image.create(scaled.width, scaled.height);
         const angleAsRadian = (deg / 180) * Math.PI;
 
@@ -84,6 +84,6 @@ namespace images {
             }
         }
 
-        return images.scaleDown(output, 3);
+        return scaling.scaleDown(output, 3);
     }
 }

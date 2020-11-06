@@ -72,7 +72,7 @@ function testScalingSpeed() {
     `);
     
     mySprite.x -= 30;
-    const scaleSprite = sprites.create(images.scale3x(mySprite.image));
+    const scaleSprite = sprites.create(scaling.scale3x(mySprite.image));
     scaleSprite.x += 20;
     for (let i = 0; i <= 500; ++i) {
         pause(10);
@@ -81,7 +81,7 @@ function testScalingSpeed() {
             Math.randomRange(0, 15),
             Math.randomRange(10, 0xf)
         );
-        scaleSprite.setImage(images.scale3x(mySprite.image))
+        scaleSprite.setImage(scaling.scale3x(mySprite.image))
     }
 }
 
@@ -419,9 +419,9 @@ function testRotSquareAndScale() {
 
     for (const im of imgs) {
         mySprite.setImage(im);
-        scale2xSprite.setImage(images.scale2x(im));
-        scale3xSprite.setImage(images.scale3x(im));
-        scale4xSprite.setImage(images.scale4x(im));
+        scale2xSprite.setImage(scaling.scale2x(im));
+        scale3xSprite.setImage(scaling.scale3x(im));
+        scale4xSprite.setImage(scaling.scale4x(im));
         rot90Sprite.setImage(images.rot(im, 90));
         rot180Sprite.setImage(images.rot(im, 180));
         rot270Sprite.setImage(images.rot(im, 270));
@@ -476,6 +476,6 @@ function smolStrawberry() {
         . c c c c c c c . . . . . . . .
     `)
 
-    mySprite.setImage(images.scaleDown(mySprite.image, 2));
+    mySprite.setImage(scaling.scaleDown(mySprite.image, 2));
     pause(1000)
 }
