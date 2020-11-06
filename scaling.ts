@@ -21,7 +21,6 @@ namespace scaling {
     //% blockId=scalingextscale2 block="scale $im by 2x"
     //% im.shadow=variables_get
     //% group="Scaling" weight=65
-    //% blockNamespace=scaling
     export function scale2x(im: Image): Image {
         const w = im.width;
         const h = im.height;
@@ -83,7 +82,6 @@ namespace scaling {
     //% blockId=scalingextscale3 block="scale $im by 3x"
     //% im.shadow=variables_get
     //% group="Scaling" weight=60
-    //% blockNamespace=scaling
     export function scale3x(im: Image): Image {
         const w = im.width;
         const h = im.height;
@@ -169,7 +167,6 @@ namespace scaling {
     //% blockId=scalingextscalehalf block="scale $im by .5x"
     //% im.shadow=variables_get
     //% group="Scaling" weight=40
-    //% blockNamespace=scaling
     export function scaleDown(im: Image, square: number) {
         const w = im.width / square;
         const h = im.height / square;

@@ -45,8 +45,8 @@ function testArbitraryRot() {
 
     for (let i = 10; i <= 720; i += 5) {
         pause(20)
-        rotSprite.setImage(images.rot(mySprite.image, i));
-        rotSpriteWithPadding.setImage(images.rot(mySprite.image, i, 1));
+        rotSprite.setImage(scaling.rot(mySprite.image, i));
+        rotSpriteWithPadding.setImage(scaling.rot(mySprite.image, i, 1));
     }
 }
 
@@ -422,9 +422,9 @@ function testRotSquareAndScale() {
         scale2xSprite.setImage(scaling.scale2x(im));
         scale3xSprite.setImage(scaling.scale3x(im));
         scale4xSprite.setImage(scaling.scale4x(im));
-        rot90Sprite.setImage(images.rot(im, 90));
-        rot180Sprite.setImage(images.rot(im, 180));
-        rot270Sprite.setImage(images.rot(im, 270));
+        rot90Sprite.setImage(scaling.rot(im, 90));
+        rot180Sprite.setImage(scaling.rot(im, 180));
+        rot270Sprite.setImage(scaling.rot(im, 270));
 
         pause(600);
     }
