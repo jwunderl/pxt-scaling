@@ -5,26 +5,31 @@ namespace scaling {
     //% deg.defl=90
     //% group="Scaling" weight=70
     export function rot(im: Image, deg: number, padding?: number) {
-        const rangeForExact = 3;
+        const rangeForExact = 2;
         deg = deg < 0 ? 360 - Math.abs(deg % 360) : Math.abs(deg % 360);
+ 
+        const base = image.create(
+            im.width + (padding << 1),
+            im.height + (padding << 1)
+        );
+        base.drawImage(im, padding, padding);
 
-        let base = im;
-        if (padding > 0) {
-            base = image.create(
-                im.width + (padding << 1),
-                im.height + (padding << 1)
-            );
-            base.drawImage(im, padding, padding);
-        }
-
+        // TODO: transposed seems to be broken; 
+        // it's miscaling images. Fix in core then use it for 90/270
         if (Math.abs(deg - 90) < rangeForExact) {
+            // base.flipY();
+            // return base.transposed();
             return rot90(base);
         } else if (Math.abs(deg - 180) < rangeForExact) {
-            return rot90(rot90(base));
+            base.flipX();
+            base.flipY();
+            return base;
         } else if (Math.abs(deg - 270) < rangeForExact) {
+            // base.flipX();
+            // return base.transposed();
             return rot90(rot90(rot90(base)));
         } else if (deg < rangeForExact) {
-            return base === im ? base.clone() : base;
+            return base;
         } else {
             return rotSprite(base, deg)
         }
@@ -33,9 +38,9 @@ namespace scaling {
     //% blockId=scalingextrotarray block="array of $count rotations of $im|| with $padding padding"
     //% im.shadow=variables_get
     //% count.defl=8
-    //% padding.defl=4
+    //% padding.defl=3
     //% group="Scaling" weight=60
-    export function createRotations(im: Image, count: number, padding = 4): Image[] {
+    export function createRotations(im: Image, count: number, padding = 3): Image[] {
         const output = [];
         for (let i = 0; i < count; ++i) {
             output[i] = scaling.rot(
@@ -51,7 +56,6 @@ namespace scaling {
         const w = im.width;
         const h = im.height;
         const output = image.create(h, w);
-
         for (let x = 0; x < w; x++) {
             for (let y = 0; y < h; y++) {
                 const c = im.getPixel(x, h - y - 1);
@@ -62,7 +66,6 @@ namespace scaling {
                 );
             }
         }
-
         return output;
     }
 
