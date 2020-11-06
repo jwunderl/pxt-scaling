@@ -22,19 +22,19 @@ namespace scaling {
     //% im.shadow=variables_get
     //% group="Scaling" weight=65
     export function scale2x(im: Image): Image {
-        const w = im.width;
-        const h = im.height;
+        const width = im.width;
+        const height = im.height;
         const output = image.create(
-            w << 1,
-            h << 1
+            width << 1,
+            height << 1
         );
 
-        for (let x = 0; x < im.width; ++x) {
+        for (let x = 0; x < width; ++x) {
             const lb = x === 0; // left pixel oob
-            const rb = x === im.width - 1; // right pixel oob
-            for (let y = 0; y < im.height; ++y) {
+            const rb = x === width - 1; // right pixel oob
+            for (let y = 0; y < height; ++y) {
                 const tb = y === 0; // top oob
-                const bb = y === im.height - 1; // bottom oob
+                const bb = y === height - 1; // bottom oob
 
                 const e = im.getPixel(x, y);
 
@@ -83,19 +83,19 @@ namespace scaling {
     //% im.shadow=variables_get
     //% group="Scaling" weight=60
     export function scale3x(im: Image): Image {
-        const w = im.width;
-        const h = im.height;
+        const width = im.width;
+        const height = im.height;
         const output = image.create(
-            w * 3,
-            h * 3
+            width * 3,
+            height * 3
         );
 
-        for (let x = 0; x < im.width; ++x) {
+        for (let x = 0; x < width; ++x) {
             const lb = x === 0;
-            const rb = x === im.width - 1;
-            for (let y = 0; y < im.height; ++y) {
+            const rb = x === width - 1;
+            for (let y = 0; y < height; ++y) {
                 const tb = y === 0;
-                const bb = y === im.height - 1;
+                const bb = y === height - 1;
 
                 const e = im.getPixel(x, y);
 
