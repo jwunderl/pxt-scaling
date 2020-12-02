@@ -167,6 +167,10 @@ namespace scaling {
     //% blockId=scalingextscalehalf block="scale $im by .5x"
     //% im.shadow=variables_get
     //% group="Scaling" weight=40
+    export function scaleHalfX(im: Image): Image {
+        return scaleDown(im, 2);
+    }
+
     export function scaleDown(im: Image, square: number) {
         const w = im.width / square;
         const h = im.height / square;
