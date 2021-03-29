@@ -7,6 +7,13 @@ namespace scaling {
     export function rot(im: Image, deg: number, padding?: number) {
         const rangeForExact = 2;
         deg = deg < 0 ? 360 - Math.abs(deg % 360) : Math.abs(deg % 360);
+        if (padding == undefined) {
+            const maxDim = Math.max(im.width, im.height);
+            const diag = Math.sqrt(im.width ** 2 + im.height ** 2);
+            padding = Math.ceil(
+                (diag - maxDim) / 2
+            );
+        }
  
         const base = image.create(
             im.width + (padding << 1),
