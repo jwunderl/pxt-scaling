@@ -10,14 +10,19 @@
         "main.ts",
         "scaling.ts",
         "rot.ts",
-        "util.ts"
+        "util.ts",
+        "docs/rotate-by-degrees.md",
+        "docs/scale-2x.md",
+        "docs/create-rotations.md",
+        "docs/scale-3x.md",
+        "docs/scale-half.md"
     ],
     "testFiles": [
         "test.ts"
     ],
     "public": true,
     "targetVersions": {
-        "target": "1.4.30",
+        "target": "2.1.30",
         "targetId": "arcade"
     },
     "supportedTargets": [

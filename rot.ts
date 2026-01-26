@@ -2,6 +2,8 @@ namespace scaling {
 
     //% blockId=scalingextrot block="rotate $im by $deg degrees || with $padding"
     //% im.shadow=variables_get
+    //% im.defl=picture
+    //% help=github:pxt-scaling/docs/rotate-by-degrees
     //% deg.defl=90
     //% group="Scaling" weight=70
     export function rot(im: Image, deg: number, padding?: number) {
@@ -44,8 +46,10 @@ namespace scaling {
 
     //% blockId=scalingextrotarray block="array of $count rotations of $im|| with $padding padding"
     //% im.shadow=variables_get
+    //% im.defl=picture
     //% count.defl=8
     //% padding.defl=3
+    //% help=github:pxt-scaling/docs/create-rotations
     //% group="Scaling" weight=60
     export function createRotations(im: Image, count: number, padding = 3): Image[] {
         const output = [];
