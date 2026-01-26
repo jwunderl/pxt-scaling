@@ -7,7 +7,6 @@
     },
     "files": [
         "README.md",
-        "main.ts",
         "scaling.ts",
         "rot.ts",
         "util.ts",

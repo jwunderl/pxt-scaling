@@ -1,8 +1,7 @@
 namespace scaling {
 
     //% blockId=scalingextrot block="rotate $im by $deg degrees || with $padding"
-    //% im.shadow=variables_get
-    //% im.defl=picture
+    //% im.shadow=screen_image_picker
     //% blockSetVariable=myRotatedImage
     //% help=github:pxt-scaling/docs/rotate-by-degrees
     //% deg.defl=90
@@ -46,8 +45,7 @@ namespace scaling {
     }
 
     //% blockId=scalingextrotarray block="array of $count rotations of $im|| with $padding padding"
-    //% im.shadow=variables_get
-    //% im.defl=picture
+    //% im.shadow=screen_image_picker
     //% count.defl=8
     //% padding.defl=3
     //% blockSetVariable=myRotatedImages
